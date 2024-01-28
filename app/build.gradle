@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation "com.github.lisawray.groupie:groupie:2.10.1" // groupie
+    implementation "com.github.lisawray.groupie:groupie-viewbinding:2.10.1" // groupie-view-binding
     implementation "androidx.recyclerview:recyclerview:1.3.2" // RecyclerView
 
     implementation 'androidx.core:core-ktx:1.12.0'

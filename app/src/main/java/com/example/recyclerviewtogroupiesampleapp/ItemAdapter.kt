@@ -1,23 +1,14 @@
 package com.example.recyclerviewtogroupiesampleapp
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewtogroupiesampleapp.databinding.RecyclerItemBinding
+import com.xwray.groupie.GroupieViewHolder
+import com.xwray.groupie.Item
 
-class ItemAdapter(private val items: List<String>): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
-    class ItemViewHolder(val binding: RecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val binding = RecyclerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemViewHolder(binding)
+class ItemAdapter(private val item: String): Item<GroupieViewHolder>() {
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        val binding = RecyclerItemBinding.bind(viewHolder.itemView)
+        binding.textViewItem.text = item
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
-
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.binding.textViewItem.text = items[position]
-    }
+    override fun getLayout() = R.layout.recycler_item
 }
